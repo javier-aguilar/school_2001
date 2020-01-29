@@ -9,7 +9,9 @@ class School
   end
 
   def add_student_name(student_name)
-    @student_names << student_name
+    if(student_name.class == String)
+      @student_names << student_name
+    end
   end
 
   def end_time
@@ -18,7 +20,7 @@ class School
     if(num > 24)
       num = num - 24
     end
-      "#{num}:00"
+    "#{num}:00"
   end
 
   def is_full_time?

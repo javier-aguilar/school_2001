@@ -38,14 +38,26 @@ class SchoolTest < Minitest::Test
     school.add_student_name('megan')
 
     assert_equal ['Aurora', 'tim', 'megan'], school.student_names
+
+    school = School.new('9:00', 7)
+
+    school.add_student_name('Aurora')
+    school.add_student_name('tim')
+    school.add_student_name('megan')
+    school.add_student_name(25)
+
+    assert_equal ['Aurora', 'tim', 'megan'], school.student_names
   end
 
   def test_it_can_calculate_end_time
     school1 = School.new('9:00', 7)
     school2 = School.new('9:00', 3)
+    school3 = School.new('8:00', 25)
+
 
     assert_equal '16:00', school1.end_time
     assert_equal '12:00', school2.end_time
+    assert_equal '9:00', school3.end_time
   end
 
   #Iteration 3 Tests:
@@ -62,12 +74,17 @@ class SchoolTest < Minitest::Test
     school.add_student_name('megan')
 
     assert_equal ["Aurora", "Tim", "Megan"], school.standard_student_names
+
+    school.add_student_name(5)
+
+    assert_equal ["Aurora", "Tim", "Megan"], school.standard_student_names
+
   end
 
   #Iteration 4 Tests:
   def test_it_can_convert_end_time_to_clock_time
     school = School.new('9:00', 7)
-    
+
     assert_equal "4:00", school.convert_end_time_to_clock_time
   end
 
