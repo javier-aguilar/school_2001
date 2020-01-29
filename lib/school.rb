@@ -24,4 +24,8 @@ class School
   def is_full_time?
     @hours_in_school_day >= 7 ? true : false
   end
+
+  def standard_student_names
+    @student_names.map { |value| value.capitalize}
+  end
 end
