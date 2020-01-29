@@ -28,4 +28,12 @@ class School
   def standard_student_names
     @student_names.map { |value| value.capitalize}
   end
+
+  def convert_end_time_to_clock_time
+    if(end_time.split(':')[0].to_i > 12)
+     "#{end_time.split(':')[0].to_i - 12}:00"
+    else
+      end_time
+    end
+  end
 end
