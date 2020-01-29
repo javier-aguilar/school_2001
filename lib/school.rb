@@ -22,11 +22,11 @@ class School
   end
 
   def is_full_time?
-    @hours_in_school_day >= 7 ? true : false
+    @hours_in_school_day >= 4 ? true : false
   end
 
   def standard_student_names
-    @student_names.map { |value| value.capitalize}
+    @student_names.map { |student| student.capitalize}
   end
 
   def convert_end_time_to_clock_time
